@@ -1,4 +1,11 @@
 <script setup lang="ts">
+// hooks
+import useBase64 from './hooks'
+useBase64({
+  el: '#img'
+}).then(res => {
+  console.log(res)
+})
 
 </script>
 
