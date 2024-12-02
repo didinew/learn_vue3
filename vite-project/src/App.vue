@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
+
 </script>
 
 <template>
   <div class="box">
-   <img src="./assets/images/1.png" id="img" alt="">
+    app
   </div>
 </template>
 
