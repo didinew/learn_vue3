@@ -1,6 +1,20 @@
 <script setup lang="ts">
+const footer = ref<any[]>([
+  {
+    id: 1,
+    name: '首页'
+  },
+  {
+    id: 2,
+    name: '菜单'
+  },
+  {
+    id: 3,
+    name: '个人中心'
+  },
+])
 
-console.log(JSON.stringify(import.meta.env))
+
 </script>
 
 <template>
@@ -29,6 +43,13 @@ console.log(JSON.stringify(import.meta.env))
         </div>
       </div>
     </main>
+    <footer class="footer">
+      <div class="footer-item" v-for="item in footer" :key="item.id">
+        <div>
+          {{  item.name }}
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
