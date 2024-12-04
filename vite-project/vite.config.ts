@@ -1,23 +1,28 @@
 import path from 'node:path'
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import postcsspxtoviewport from 'postcss-px-to-viewport'
-
+import unocss  from 'unocss/vite'
+import { presetIcons, presetAttributify, presetUno } from 'unocss'
 // 在这里使用环境变量
 
 // https://vite.dev/config/
 
-export default ({mode}: any) =>  {
-
-  console.log(loadEnv(mode, process.cwd()))
-
-
-  return defineConfig({
+  export default defineConfig({
     plugins: [vue(), AutoImport({
       imports: ['vue'],
       dts: 'src/auto-import.d.ts'
-    })],
+    }),
+    unocss({
+      rules: [
+        ['flex', {display: "flex"}],
+        ['pink', {color: "pink"}],
+        [/^m-(\d+)$/, ([, d]) => ({ margin: `${Number(d) * 10}px` })]
+      ],
+      presets:[presetIcons(),presetAttributify(),presetUno()] // 引入presetIcons 预设图标 presetAttributify tailwind
+    })
+  ],
     css: {
       postcss: {
         plugins: [
@@ -44,4 +49,3 @@ export default ({mode}: any) =>  {
     }
   })
   
-}

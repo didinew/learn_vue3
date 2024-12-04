@@ -5,7 +5,7 @@ console.log(JSON.stringify(import.meta.env))
 
 <template>
   <div class="container">
-    <header class="header">
+    <header class="header flex pink">
       <div>
         left
       </div>
@@ -16,8 +16,8 @@ console.log(JSON.stringify(import.meta.env))
         right
       </div>
     </header>
-    <main class="main">
-      <div class="main-item" v-for="item in 20" :key="item">
+    <main class="main pink">
+      <div class="main-item m-10" v-for="item in 20" :key="item">
         <div class="main-port"></div>
         <div class="main-desc">
           <div>
@@ -25,6 +25,7 @@ console.log(JSON.stringify(import.meta.env))
           </div>
           <div>
             这是测试
+            <div class="i-ic-baseline-backspace text-3xl bg-green-500" />
           </div>
         </div>
       </div>
@@ -47,7 +48,6 @@ body,
   flex-direction: column;
 }
 .header {
-  display: flex;
   justify-content: space-around;
   background-color: aquamarine;
   height: 40px;
