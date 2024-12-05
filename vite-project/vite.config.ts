@@ -1,16 +1,35 @@
-import path from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import postcsspxtoviewport from 'postcss-px-to-viewport'
 import unocss  from 'unocss/vite'
 import { presetIcons, presetAttributify, presetUno } from 'unocss'
+import { VitePWA } from 'vite-plugin-pwa' 
+
 // 在这里使用环境变量
 
 // https://vite.dev/config/
 
   export default defineConfig({
-    plugins: [vue(), AutoImport({
+    plugins: [vue(), VitePWA({
+      workbox:{
+        cacheId:"zl",//缓存名称
+        runtimeCaching:[
+          {
+            urlPattern:/.*\.js.*/, //缓存文件
+            handler:"StaleWhileRevalidate", //重新验证时失效
+            options:{
+              cacheName:"zl-js", //缓存js，名称
+              expiration:{
+                maxEntries:30, //缓存文件数量 LRU算法
+                maxAgeSeconds:30 * 24 * 60 * 60 //缓存有效期
+
+              }
+            }
+          }
+        ]
+      },
+    }), AutoImport({
       imports: ['vue'],
       dts: 'src/auto-import.d.ts'
     }),
@@ -41,11 +60,6 @@ import { presetIcons, presetAttributify, presetUno } from 'unocss'
           })
         ]
       }
-    },
-    resolve: {
-      alias: {
-        '@': `${path.resolve(__dirname, 'src')}`,
-      },
     }
   })
   

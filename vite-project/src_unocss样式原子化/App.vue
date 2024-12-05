@@ -1,21 +1,35 @@
 <script setup lang="ts">
-// import { useRouter } from 'vue-router';
-// const router = useRouter()
-// const goToPage = (url: string) => {
-//   router.push(url)
-// }
 
-
-// const goToPage = (url: string) => {
-//   router.replace(url)
-// }
+console.log(JSON.stringify(import.meta.env))
 </script>
 
 <template>
   <div class="container">
-    <router-view></router-view>
-    <router-view name="header"> </router-view>
-    <router-view name="content"></router-view>
+    <header class="header flex pink">
+      <div>
+        left
+      </div>
+      <div>
+        中间
+      </div>
+      <div>
+        right
+      </div>
+    </header>
+    <main class="main pink">
+      <div class="main-item m-10" v-for="item in 20" :key="item">
+        <div class="main-port"></div>
+        <div class="main-desc">
+          <div>
+            zl{{ item }}
+          </div>
+          <div>
+            这是测试
+            <div class="i-ic-baseline-backspace text-3xl bg-green-500" />
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 </template>
 
