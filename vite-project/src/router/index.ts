@@ -3,11 +3,31 @@ import {createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 const routes:Array<RouteRecordRaw> = [
     {
         path: '/',
-        components: {
-            default: () => import('../components/Footer.vue'),
-            header: () => import('../components/Reg.vue'),
-            content: () => import('../components/Login.vue'),
-        }
+        component: () => import('../components/Login.vue'),
+        redirect: '/login',
+        alias: [],
+        children: [
+            {
+                path: '/login',
+                name: 'Login',
+                component: () => import('../components/Login.vue')
+            },
+            {
+                path: '/reg',
+                name: 'Reg',
+                component: () => import('../components/Reg.vue')
+            },
+            {
+                path: '/detail',
+                name: 'Detail',
+                component: () => import('../components/Detail.vue')
+            },
+            {
+                path: '/detail1',
+                name: 'detail1',
+                component: () => import('../components/Detail1.vue')
+            }
+        ]
     }
 ]
 
