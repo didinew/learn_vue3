@@ -4,8 +4,19 @@
 
 <template>
   <div class="container">
-    index
+    indexindexindexindexindex
   </div>
 </template>
+
 <style scoped lang="less">
+html,
+body,
+#app {
+  height: 100%;
+  font-size: 14px;
+}
+
+.container {
+  height: 500px;
+}
 </style>

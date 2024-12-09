@@ -3,9 +3,15 @@
 </script>
 
 <template>
-  <div class="container">
-    index
-  </div>
+  <router-view></router-view>
 </template>
+
 <style scoped lang="less">
+html,
+body,
+#app {
+  height: 100%;
+  font-size: 14px;
+}
+
 </style>
