@@ -8,7 +8,4 @@
   </div>
 </template>
 <style scoped lang="less">
-.container {
-    height: 1000px;
-}
 </style>

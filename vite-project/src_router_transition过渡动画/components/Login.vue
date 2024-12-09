@@ -42,6 +42,6 @@ body,
 }
 
 .container {
-  height: 2000px;
+  height: 500px;
 }
 </style>
