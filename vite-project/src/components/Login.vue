@@ -1,65 +1,47 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 const router = useRouter()
-type List = {
-    id: number,
-    name: string,
-    price: number
-}
-const list = ref<List[]>([
-    {
-        id: 1,
-        name: '品牌1',
-        price: 200
-    },
-    {
-        id: 2,
-        name: '品牌222222',
-        price: 250
-    },
-    {
-        id: 3,
-        name: '品牌333333',
-        price: 400
-    }
-])
- 
-const goToDetail = (item: List) => {
-    // router.push({
-    //     path: '/detail',
-    //     query: item
-    // })
 
-    router.push({
-        name: 'detail1',
-        params: item
-    })
+const form = reactive({
+  username: '',
+  password: ''
+})
+
+const onSubmit = () => {
+  // console.log('onSubmit', form)
+  localStorage.setItem('token', '1')
+  router.push('/')
 }
 </script>
- 
- <template>
-   <div class="container">
-    login
-    <div class="list">
-        <div class="items" v-for="item in list" @click="goToDetail(item)"> 
-            <div>品牌名称： {{ item.name }}</div>
-        </div>
-    </div>
-   </div>
- </template>
- 
- <style scoped lang="less">
-  .container {
-    width: 500px;
-    height: 200px;
-  }
-  .list {
-    background-color: #ccc;
-    color: #890889;
-    .items {
-        padding: 5px;
-        border-bottom: 1px solid #fff;
-    }
-  }
+
+<template>
+  <div class="container">
+    <el-form :model="form" label-width="auto" style="max-width: 600px">
+      <el-form-item label="用户名">
+        <el-input v-model="form.username"></el-input>
+      </el-form-item>
+      <el-form-item label="活动名称">
+        <el-input v-model="form.password"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="onSubmit">立即创建</el-button>
+        <el-button>取消</el-button>
+      </el-form-item>
+    </el-form>
+    <!-- <router-view name="header"> </router-view>
+    <router-view name="content"></router-view> -->
+  </div>
+</template>
+
+<style scoped lang="less">
+html,
+body,
+#app {
+  height: 100%;
+  font-size: 14px;
+}
+
+.container {
+  height: 500px;
+}
 </style>
- 

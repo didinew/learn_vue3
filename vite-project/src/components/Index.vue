@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <router-view></router-view>
+  <div class="container">
+    indexindexindexindexindex
+  </div>
 </template>
 
 <style scoped lang="less">
@@ -14,4 +16,7 @@ body,
   font-size: 14px;
 }
 
+.container {
+  height: 500px;
+}
 </style>
