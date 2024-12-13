@@ -1,4 +1,3 @@
-"use strict";
 // any unknown 顶级类型
 // any
 // any 就失去了TS类型检测的作用

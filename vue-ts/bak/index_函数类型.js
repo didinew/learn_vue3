@@ -1,4 +1,3 @@
-"use strict";
 // 函数的类型
 // 参数不能多传也不能少传
 function fn(name, age) {

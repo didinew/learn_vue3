@@ -1,4 +1,3 @@
-"use strict";
 // 内置对象
 // Boolean Number String RegExp Date Error
 // const bInner: Boolean = new Boolean(1)
