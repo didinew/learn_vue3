@@ -41,6 +41,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // 4. 通过namespace
 // import {aNamespace} from './indexA'
 // console.log(aNamespace)
-const index_export_1 = __importStar(require("./index_export"));
+var index_export_1 = __importStar(require("./index_export"));
 console.log(index_export_1.default);
 console.log((0, index_export_1.addExport)(8, 9));

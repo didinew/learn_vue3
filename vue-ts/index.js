@@ -1,36 +1,18 @@
-// 1. 对象混入
-// 可以使用es6的 Object.assign 合并多个对象
-// interface NameMixin{
-//     name: string
-// }
-// interface AgeMixin {
-//     age: number
-// }
-// interface SexMixin {
-//     sex: number
-// }
-// let pp1: NameMixin = {name: 'mixin-name'}
-// let pp2: AgeMixin = {age: 12}
-// let pp3: SexMixin = {sex: 1}
-// const pObject = Object.assign(pp1, pp2, pp3)
-// console.log(pObject)
-// 2.类的混入
-// 首先声明两个mixins类，（严格模式 要关闭不然编译不过）
-class AMixins {
-    constructor() {
-        this.type = false;
+// 装饰器
+// 类装饰器 ClassDecorator
+// 属性装饰器 PropertyDecorator
+// 参数装饰器 ParamterDecorator
+// 方法咋UN个时期 MethodDecorator PropertyDescriptor
+// 装饰工厂
+var Base = function (target) {
+    target.prototype.xiaoman = 'xxxx';
+};
+// @Base
+var Http = /** @class */ (function () {
+    function Http() {
     }
-    changeType() {
-        this.type = !this.type;
-    }
-}
-class BMixins {
-    constructor() {
-        this.name = 'zhangsan';
-    }
-    getName() {
-        return this.name;
-    }
-}
-class CMixins {
-}
+    return Http;
+}());
+Base(Http);
+var http = new Http();
+// console.log(http.xiaoman)

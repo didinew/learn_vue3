@@ -76,18 +76,23 @@
 //     el: '#app'
 // })
 // vue.init()
-class Ref {
-    constructor(value) {
+var Ref = /** @class */ (function () {
+    function Ref(value) {
         this._value = value;
     }
-    get value() {
-        return this._value + 'd-----------';
-    }
-    set value(newVal) {
-        this._value = newVal + 'set value';
-    }
-}
-const ref = new Ref('this is test');
+    Object.defineProperty(Ref.prototype, "value", {
+        get: function () {
+            return this._value + 'd-----------';
+        },
+        set: function (newVal) {
+            this._value = newVal + 'set value';
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return Ref;
+}());
+var ref = new Ref('this is test');
 console.log(ref.value);
 ref.value = '这是一个测试';
 console.log(ref.value);

@@ -17,15 +17,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // declare namespace
 // 声明全局类型
 // interface 和 type
-const express_1 = __importDefault(require("express"));
-const app = (0, express_1.default)();
-const router = express_1.default.Router();
+var express_1 = __importDefault(require("express"));
+var app = (0, express_1.default)();
+var router = express_1.default.Router();
 app.use('/api', router);
-router.get('/list', (req, res) => {
+router.get('/list', function (req, res) {
     res.json({
         code: 200
     });
 });
-app.listen(9001, () => {
+app.listen(9001, function () {
     console.log(9001);
 });

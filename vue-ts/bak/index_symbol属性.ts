@@ -98,4 +98,4 @@ const objIter = {
     }
 }
 
-console.log([...objIter])
+// console.log([...objIter])
