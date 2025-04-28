@@ -1,3 +1,4 @@
+"use strict";
 // Class类
 // class 的基本作用： 继承和约束
 // class 修饰符 readonly private protected public
@@ -76,23 +77,18 @@
 //     el: '#app'
 // })
 // vue.init()
-var Ref = /** @class */ (function () {
-    function Ref(value) {
+class Ref {
+    constructor(value) {
         this._value = value;
     }
-    Object.defineProperty(Ref.prototype, "value", {
-        get: function () {
-            return this._value + 'd-----------';
-        },
-        set: function (newVal) {
-            this._value = newVal + 'set value';
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return Ref;
-}());
-var ref = new Ref('this is test');
+    get value() {
+        return this._value + 'd-----------';
+    }
+    set value(newVal) {
+        this._value = newVal + 'set value';
+    }
+}
+const ref = new Ref('this is test');
 console.log(ref.value);
 ref.value = '这是一个测试';
 console.log(ref.value);

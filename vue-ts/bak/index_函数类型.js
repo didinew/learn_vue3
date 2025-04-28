@@ -1,40 +1,37 @@
+"use strict";
 // 函数的类型
 // 参数不能多传也不能少传
 function fn(name, age) {
-    return "\u8FD9\u91CC\u662F".concat(name, "\u7684").concat(age, "\u5C81\u751F\u65E5");
+    return `这里是${name}的${age}岁生日`;
 }
-var returnRe = fn('章三', 18);
+const returnRe = fn('章三', 18);
 // console.log(returnRe)
 // 参数可以选择
 function fnSelected(name, age) {
     return {
-        name: name,
-        age: age
+        name,
+        age
     };
 }
-var reSelect = fnSelected('章三');
-var addFn = function (num, num2) {
+const reSelect = fnSelected('章三');
+const addFn = (num, num2) => {
     return num + num2;
 };
-var resAdd = addFn(1, 33);
-var userFn = function (user) {
-    return "this is a ".concat(user.name, " --- ").concat(user.age);
+const resAdd = addFn(1, 33);
+const userFn = (user) => {
+    return `this is a ${user.name} --- ${user.age}`;
 };
-var userRes = userFn({
+const userRes = userFn({
     name: 'zhangsan',
     age: 111
 });
 // console.log(userRes)
 // 定义剩余参数
-var definedFn = function (array) {
-    var item = [];
-    for (var _i = 1; _i < arguments.length; _i++) {
-        item[_i - 1] = arguments[_i];
-    }
+const definedFn = (array, ...item) => {
     console.log(array, item);
     return item;
 };
-var fnArr = [1, 2, 3];
+let fnArr = [1, 2, 3];
 definedFn(fnArr, '2', '4', '5');
 function fnAgain(params, params2) {
     console.log(params);

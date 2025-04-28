@@ -1,5 +1,4 @@
 "use strict";
-// namespace
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -34,13 +33,29 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-// 无法避免 全局类型 造成的污染，typescript 提供了namespace 
-// 1.内部模块，主要用于组织代码，避免命名冲突
-// 2. 命名空间内的类默认私有
-// 3. 通过export暴露
-// 4. 通过namespace
-// import {aNamespace} from './indexA'
-// console.log(aNamespace)
-const index_export_1 = __importStar(require("./index_export"));
-console.log(index_export_1.default);
-console.log((0, index_export_1.addExport)(8, 9));
+const vue_router_1 = require("vue-router");
+const routes = [
+    {
+        path: '/',
+        name: 'Index',
+        component: () => Promise.resolve().then(() => __importStar(require('../components/Index.vue'))),
+        meta: {
+            title: '首页',
+            transition: 'animate__zoomInDown'
+        }
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: () => Promise.resolve().then(() => __importStar(require('../components/Login.vue'))),
+        meta: {
+            title: '登陆',
+            transition: 'animate__rollIn'
+        }
+    }
+];
+const router = (0, vue_router_1.createRouter)({
+    history: (0, vue_router_1.createWebHistory)(import.meta.env.BASE_URL),
+    routes
+});
+exports.default = router;

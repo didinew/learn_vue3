@@ -1,3 +1,4 @@
+"use strict";
 // 泛型
 // 函数泛型
 // function numNb (a: number, b: number): Array<number> {
@@ -16,33 +17,33 @@
 function numT(a, b) {
     return [a, b];
 }
-var numTStr = numT('str1', 'str2');
+const numTStr = numT('str1', 'str2');
 console.log(numTStr);
-var numTNum = numT(123, 456);
+const numTNum = numT(123, 456);
 console.log(numTNum);
 // 可以使用不同的泛型参数名，只要在 数量上和使用方式上能对应上就可以
 function subT(a, b) {
-    var params = [a, b];
+    const params = [a, b];
     return params;
 }
-var newTArr = subT(true, '2323232');
+const newTArr = subT(true, '2323232');
 console.log(newTArr);
 function fnResult(arg) {
     return arg;
 }
-var result = fnResult;
-var rss = result([1, 2, 3555, 34343]);
+let result = fnResult;
+const rss = result([1, 2, 3555, 34343]);
 // console.log(rss)
 // 对象字面量泛型
-var fooResultInterface;
+let fooResultInterface;
 fooResultInterface = function (arg) {
     return arg;
 };
-var fooResultInterfaceRe = fooResultInterface(8545555);
+const fooResultInterfaceRe = fooResultInterface(8545555);
 function getLength(arg) {
     return arg.length;
 }
-var lenRes = getLength('w343434343');
+const lenRes = getLength('w343434343');
 console.log(lenRes);
 // 使用 keyof 约束对象
 // 使用了TS 泛型和泛型约束，
@@ -52,20 +53,19 @@ console.log(lenRes);
 function prop(obj, key) {
     return obj[key];
 }
-var ooo = { a: 1, b: 2, c: 3 };
-var sssss = prop(ooo, 'a');
+let ooo = { a: 1, b: 2, c: 3 };
+const sssss = prop(ooo, 'a');
 console.log(sssss);
 // 声明方法跟 函数类 似名称后面定义<类型>
 // 使用的时候确定类型 new Sub<number>
-var Sub = /** @class */ (function () {
-    function Sub() {
+class Sub {
+    constructor() {
         this.att = [];
     }
-    Sub.prototype.add = function (a) {
+    add(a) {
         return [a];
-    };
-    return Sub;
-}());
-var newSub = new Sub();
+    }
+}
+const newSub = new Sub();
 newSub.att = [2222, 5555];
 console.log(newSub.add(88555));

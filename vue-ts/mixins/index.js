@@ -1,3 +1,4 @@
+"use strict";
 // 1. 对象混入
 // 可以使用es6的 Object.assign 合并多个对象
 // interface NameMixin{
@@ -16,26 +17,21 @@
 // console.log(pObject)
 // 2.类的混入
 // 首先声明两个mixins类，（严格模式 要关闭不然编译不过）
-var AMixins = /** @class */ (function () {
-    function AMixins() {
+class AMixins {
+    constructor() {
         this.type = false;
     }
-    AMixins.prototype.changeType = function () {
+    changeType() {
         this.type = !this.type;
-    };
-    return AMixins;
-}());
-var BMixins = /** @class */ (function () {
-    function BMixins() {
+    }
+}
+class BMixins {
+    constructor() {
         this.name = 'zhangsan';
     }
-    BMixins.prototype.getName = function () {
+    getName() {
         return this.name;
-    };
-    return BMixins;
-}());
-var CMixins = /** @class */ (function () {
-    function CMixins() {
     }
-    return CMixins;
-}());
+}
+class CMixins {
+}

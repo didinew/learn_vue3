@@ -16,6 +16,8 @@
     "html-webpack-plugin": "^5.6.3",
     "less": "^4.2.1",
     "less-loader": "^12.2.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "mini-extract-plugin": "^1.4.3",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.7.2",
